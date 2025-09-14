@@ -63,6 +63,12 @@ gensshconfig --user $USER_BASTION --bastion $IP_BASTION --inventory ~/Projects/a
 gensshconfig --user $USER_BASTION --bastion $IP_BASTION --inventory ~/Projects/ansible-kube/inventories/os > ~/.ssh/k8s_config
 ```
 
+#### Add a prefix to the hosts
+
+```bash
+gensshconfig --user $USER_BASTION --bastion $IP_BASTION --inventory ~/Projects/ansible-kube/inventories/os --prefix k8s-
+```
+
 If you do not want to overwrite the default config like in the above exmaple, do not forget to include the following line in your main `config` file
 ```config
 Include k8s_config
@@ -82,5 +88,6 @@ gensshconfig -h
 |  **bastion**     |  *IP Address of the bastion*                     | `yes`        | `String`  |
 |  **inventory**   |  *Inventory folder to extract clusters host*     | `yes`        | `String`  |
 |  **user**        |  *User for the bastion*                          | `yes`        | `String`  |
+|  **prefix**      |  *Custom prefix to append to host names*         | `no`         | `String`  |
 
 

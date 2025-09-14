@@ -13,7 +13,7 @@ Host {{ $bastion }}
 {{ range .Clusters }}
 # {{ .Name }}
 {{ range .Hosts }}
-Host {{ .Hostname }}
+Host {{ $.Prefix }}{{ .Hostname }}
   ProxyJump {{ $bastion }}
   Hostname {{ .Addr }}
   User root

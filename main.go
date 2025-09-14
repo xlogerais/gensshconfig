@@ -16,6 +16,7 @@ func main() {
 	inventory := flag.String("inventory", "", "Inventory folder to extract clusters host")
 	bastion := flag.String("bastion", "", "IP Address of the bastion")
 	user := flag.String("user", "", "User for the bastion")
+	prefix := flag.String("prefix", "", "Custom prefix to append to host names in the ssh config")
 
 	flag.Parse()
 	checkRequiredFlag()
@@ -37,6 +38,7 @@ func main() {
 		utils.DefaultIgnoredFolders,
 		*user,
 		"k8s_config",
+		*prefix,
 		&services.Host{Hostname: "bastion", Addr: bastionIP})
 
 	err = config.FindCluster()

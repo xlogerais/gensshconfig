@@ -17,16 +17,18 @@ type SSHConfig struct {
 	Bastion    Host
 	Username   string
 	Name       string
+	Prefix     string
 	Clusters   []*Cluster
 	Template   string
 }
 
-func NewSSHConfig(basePath string, ignoreDirs []string, username string, configName string, bastion *Host) *SSHConfig {
+func NewSSHConfig(basePath string, ignoreDirs []string, username string, configName string, prefix string, bastion *Host) *SSHConfig {
 	return &SSHConfig{
 		BasePah:    basePath,
 		IgnoreDirs: ignoreDirs,
 		Name:       configName,
 		Username:   username,
+		Prefix:     prefix,
 		Bastion:    *bastion,
 	}
 }
